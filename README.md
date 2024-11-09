@@ -11,6 +11,13 @@ Please consider that all this code is published under the GNU General Public Lic
 
 ![](img/load_test.png)
 
+### Step 0:
+Build gradle-wrapper.jar by executing gradle wrapper inside spring project
+
+```shell
+gradle wrapper 
+```
+
 ### Step 1:
 Run the containers by executing the following command inside the "deployment" folder:
 

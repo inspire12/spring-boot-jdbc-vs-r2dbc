@@ -2,8 +2,8 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 import { Trend, Rate } from 'k6/metrics';
 
-const getTrend = new Trend('Get Books');
-const getErrorRate = new Rate('Get Books error');
+const getTrend = new Trend('Get_books');
+const getErrorRate = new Rate('Get_books error');
 
 const postTrend = new Trend('Add Book');
 const postErrorRate = new Rate('Add Book error');
@@ -36,7 +36,7 @@ export default function () {
   });
 
   const requests = {
-      'Get Books': {
+      'Get_books': {
         method: 'GET',
         url: url +'books',
         params: params,
@@ -56,7 +56,7 @@ export default function () {
     };
 
   const responses = http.batch(requests);
-  const getResp = responses['Get Books'];
+  const getResp = responses['Get_books'];
   const postResp = responses['Add Book'];
   const addOrderResp = responses['Add Order'];
 

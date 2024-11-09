@@ -2,8 +2,8 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 import { Trend, Rate } from 'k6/metrics';
 
-const getTrend = new Trend('Get Books');
-const getErrorRate = new Rate('Get Books error');
+const getTrend = new Trend('Get_Books');
+const getErrorRate = new Rate('Get_Books_error');
 
 export let options = {
   stages: [
@@ -23,7 +23,7 @@ export default function () {
   };
 
   const requests = {
-      'Get Books': {
+      'Get_books': {
         method: 'GET',
         url: url +'books/simple',
         params: params,
@@ -31,7 +31,7 @@ export default function () {
     };
 
   const responses = http.batch(requests);
-  const getResp = responses['Get Books'];
+  const getResp = responses['Get_books'];
 
   check(getResp, {
     'status is 200': (r) => r.status === 200,
